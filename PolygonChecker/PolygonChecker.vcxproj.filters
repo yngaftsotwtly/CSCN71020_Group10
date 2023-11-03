@@ -21,12 +21,24 @@
     <ClCompile Include="triangleSolver.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TriangleInsideAngle.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="4points.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="triangleSolver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="main.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TriangleInsideAngle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="4points.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
