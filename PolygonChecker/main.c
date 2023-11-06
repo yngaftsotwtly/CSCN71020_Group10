@@ -4,6 +4,10 @@
 #include "main.h"
 #include "triangleSolver.h"
 
+/*REQ_001 This system will inform the user if the three side 
+lengths form a triangle or not. And if they do form a triangle, 
+inform the user of the three inside angles of the triangle. */
+
 int side = 0;
 
 int main() {
