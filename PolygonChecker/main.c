@@ -3,10 +3,12 @@
 //Hello word 
 #include "main.h"
 #include "triangleSolver.h"
+#include "TriangleInsideAngle.h"
 
 /*REQ_001 This system will inform the user if the three side 
 lengths form a triangle or not. And if they do form a triangle, 
 inform the user of the three inside angles of the triangle. */
+
 
 int side = 0;
 
@@ -27,6 +29,12 @@ int main() {
 			char* result = analyzeTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
 			printf_s("%s\n", result);
 			break;
+		case 2:
+			printf_s("Traingle angles selected.\n");
+			int triangleAngleSides[3] = { 0, 0, 0 };
+			int* triangleAngleSidesPtr = getTriangleAngleSides(triangleAngleSides);
+			double angles[] = anglesofTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
+			printf_s("%lf, %lf, %lf", angles[0], angles[1], angles[2]);
 		case 0:
 			continueProgram = false;
 			break;
@@ -48,6 +56,7 @@ void printWelcome() {
 
 int printShapeMenu() {
 	printf_s("1. Triangle\n");
+	printf_s("2. Angles\n");
 	printf_s("0. Exit\n");
 
 	int shapeChoice;
@@ -65,4 +74,13 @@ int* getTriangleSides(int* triangleSides) {
 		scanf_s("%d", &triangleSides[i]);
 	}
 	return triangleSides;
+}
+
+int* getTriangleAngleSides(int* triangleAngleSides) {
+	printf_s("Enter the three sides of the triangle: ");
+	for (int i = 0; i < 3; i++)
+	{
+		scanf_s("%d", &triangleAngleSides[i]);
+	}
+	return triangleAngleSides;
 }
