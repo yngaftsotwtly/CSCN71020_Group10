@@ -18,6 +18,7 @@ int main() {
 		printWelcome();
 
 		int shapeChoice = printShapeMenu();
+		int rectangleMenu;
 
 		switch (shapeChoice)
 		{
@@ -29,6 +30,41 @@ int main() {
 			char* result = analyzeTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
 			printf_s("%s\n", result);
 			break;
+		case 2:
+			printf_s("Traingle angles selected.\n");
+			int triangleAngleSides[3] = { 0, 0, 0 };
+			int* triangleAngleSidesPtr = getTriangleAngleSides(triangleAngleSides);
+			double angles[] = anglesofTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
+			printf_s("%lf, %lf, %lf", angles[0], angles[1], angles[2]);
+		case 3:
+			printf_s("Rectangle selected\n");
+			prinf_s("Select how you would like to choose input your sides.\n");
+			printf_s("1. 4 separate sides");
+			printf_s("2. 2 sides split into 4");
+			scanf_s("%d", &rectangleMenu);
+			if (rectangleMenu == 1) {
+				int rectangleSidesSeparate[4] = { 0, 0, 0, 0 };
+				int* rectangleSidesSeparatePtr = getRectangleSeparateSides(rectangleSidesSeparate);
+				int sides[] = sidesofRectangle(rectangleSidesSeparatePtr[0], rectangleSidesSeparatePtr[1], rectangleSidesSeparatePtr[2], rectangleSidesSeparatePtr[3]);
+				printf_s("%d, %d, %d, %d", sides[0], sides[1], sides[2], sides[3]);
+			}
+
+			else if (rectangleMenu == 2) {
+				/* make sure when writing the code when you are doing the "Split Sides" function just use side[1] and side[2]
+				 twice, if that doesent work. You will probably need to change this array to be somthing like
+				 { side[1], side[1], side[2], side[2] }
+				*/
+				int rectangleSidesSplit[2] = { 0, 0 };
+				int* rectangleSidesSplitPtr = getRectangleSidesSplit(rectangleSidesSplit);
+				int sides[] = sidesofrectangle(rectangleSidesSplitPtr[0], rectangleSidesSplitPtr[1]);
+				printf_s("%d, %d", sides[1], sides[2]);
+			}
+
+			else {
+				printf_s("Invalid value entered");
+				break;
+			}
+
 //		case 2:
 //			printf_s("Traingle angles selected.\n");
 //			int triangleAngleSides[3] = { 0, 0, 0 };
@@ -57,6 +93,7 @@ void printWelcome() {
 int printShapeMenu() {
 	printf_s("1. Triangle\n");
 	printf_s("2. Angles\n");
+	printf_s("3. Rectangle\n");
 	printf_s("0. Exit\n");
 
 	int shapeChoice;
