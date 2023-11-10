@@ -96,7 +96,7 @@ int printShapeMenu() {
 	printf_s("3. Rectangle\n");
 	printf_s("0. Exit\n");
 
-	int shapeChoice;
+	int shapeChoice = 0;
 
 	printf_s("Enter number: ");
 	scanf_s("%1o", &shapeChoice);
