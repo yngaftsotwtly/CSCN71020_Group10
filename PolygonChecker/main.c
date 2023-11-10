@@ -29,12 +29,12 @@ int main() {
 			char* result = analyzeTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
 			printf_s("%s\n", result);
 			break;
-		case 2:
-			printf_s("Traingle angles selected.\n");
-			int triangleAngleSides[3] = { 0, 0, 0 };
-			int* triangleAngleSidesPtr = getTriangleAngleSides(triangleAngleSides);
-			double angles[] = anglesofTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
-			printf_s("%lf, %lf, %lf", angles[0], angles[1], angles[2]);
+//		case 2:
+//			printf_s("Traingle angles selected.\n");
+//			int triangleAngleSides[3] = { 0, 0, 0 };
+//			int* triangleAngleSidesPtr = getTriangleAngleSides(triangleAngleSides);
+//			double angles[] = anglesofTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
+//			printf_s("%lf, %lf, %lf", angles[0], angles[1], angles[2]);
 		case 0:
 			continueProgram = false;
 			break;
@@ -76,11 +76,11 @@ int* getTriangleSides(int* triangleSides) {
 	return triangleSides;
 }
 
-int* getTriangleAngleSides(int* triangleAngleSides) {
-	printf_s("Enter the three sides of the triangle: ");
-	for (int i = 0; i < 3; i++)
-	{
-		scanf_s("%d", &triangleAngleSides[i]);
-	}
-	return triangleAngleSides;
-}
+//int* getTriangleAngleSides(int* triangleAngleSides) {
+//	printf_s("Enter the three sides of the triangle: ");
+//	for (int i = 0; i < 3; i++)
+//	{
+//		scanf_s("%d", &triangleAngleSides[i]);
+//	}
+//	return triangleAngleSides;
+//}

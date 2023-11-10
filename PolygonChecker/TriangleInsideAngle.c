@@ -1,4 +1,4 @@
-#include <stdio.h>
+/*#include <stdio.h>
 #include <stdbool.h>
 #include <math.h>
 
@@ -48,4 +48,4 @@ double anglesofTriangle(int side1, int side2, int side3) {
 		return 0;
 	}
 	
-}
+}*/
