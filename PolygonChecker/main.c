@@ -1,9 +1,11 @@
 #pragma warning(disable:4996) // --> same as CRT NO WARNINGS 
 #include <stdio.h>
 #include <stdbool.h>
+#include <math.h>
 #include "main.h"
 #include "triangleSolver.h"
 #include "TriangleInsideAngle.h"
+#include "4points.h"
 
 /*REQ_001 This system will inform the user if the three side 
 lengths form a triangle or not. And if they do form a triangle, 
@@ -36,32 +38,24 @@ int main() {
 			anglesofTriangle(side1, side2, side3);
 		case 3:
 			printf("Rectangle selected\n");
-			printf("Select how you would like to choose input your sides.\n");
-			printf("1. 4 separate sides");
-			printf("2. 2 sides split into 4");
-			scanf("%d", &rectangleMenu);
-			if (rectangleMenu == 1) {
-				int rectangleSidesSeparate[4] = { 0, 0, 0, 0 };
-				int* rectangleSidesSeparatePtr = getRectangleSeparateSides(rectangleSidesSeparate);
-				int sides[] = sidesofRectangle(rectangleSidesSeparatePtr[0], rectangleSidesSeparatePtr[1], rectangleSidesSeparatePtr[2], rectangleSidesSeparatePtr[3]);
-				printf_s("%d, %d, %d, %d", sides[0], sides[1], sides[2], sides[3]);
-			}
+			double x[4], y[4]; 
+			double sides[4];
 
-			else if (rectangleMenu == 2) {
-				/* make sure when writing the code when you are doing the "Split Sides" function just use side[1] and side[2]
-				 twice, if that doesent work. You will probably need to change this array to be somthing like
-				 { side[1], side[1], side[2], side[2] }
-				*/
-				int rectangleSidesSplit[2] = { 0, 0 };
-				int* rectangleSidesSplitPtr = getRectangleSidesSplit(rectangleSidesSplit);
-				int sides[] = sidesofrectangle(rectangleSidesSplitPtr[0], rectangleSidesSplitPtr[1]);
-				printf_s("%d, %d", sides[1], sides[2]);
+			for (int i = 0; i < 4; ++i) {
+				userInput(&x[i], &y[i], i + 1);
 			}
+			for (int i = 0; i < 3; ++i) {
+				sides[i] = distance(x[i], y[i], x[i + 1], y[i + 1]);
+			}
+			sides[3] = distance(x[3], y[3], x[0], y[0]);
 
-			else {
-				printf_s("Invalid value entered");
-				break;
-			}
+			double firstside = sides[0];
+			double secondside = sides[1];
+			double thirdside = sides[2];
+			double fourthside = sides[3];
+
+			fourpoint(firstside, secondside, thirdside, fourthside);
+				
 		case 0:
 			continueProgram = false;
 			break;
@@ -113,4 +107,26 @@ void userTriangle(double *side1, double *side2, double *side3) {
 	printf("Enter the third side length: ");
 	scanf_s("%lf", &side3);
 
+}
+
+void userInput(double *x, double *y, int counter) {
+	
+	printf("Enter the %d x-coordinate: ", counter);
+	int i = scanf("%lf", x);
+	if (i != 1) {
+		printf("This is not a valid input!\n");
+		exit(1);
+	}
+
+	printf("Enter the %d y-coordinate: ", counter);
+	int j = scanf("%lf", y);
+	if (j != 1) {
+		printf("This is not a valid input!\n");
+		exit(1);
+	}
+	
+}
+
+double distance(double x1, double y1, double x2, double y2) {
+	return sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
 }
