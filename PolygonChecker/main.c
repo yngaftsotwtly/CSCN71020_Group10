@@ -1,6 +1,6 @@
+#pragma warning(disable:4996) // --> same as CRT NO WARNINGS 
 #include <stdio.h>
 #include <stdbool.h>
-//Hello word 
 #include "main.h"
 #include "triangleSolver.h"
 #include "TriangleInsideAngle.h"
@@ -8,7 +8,6 @@
 /*REQ_001 This system will inform the user if the three side 
 lengths form a triangle or not. And if they do form a triangle, 
 inform the user of the three inside angles of the triangle. */
-
 
 int side = 0;
 
@@ -32,16 +31,15 @@ int main() {
 			break;
 		case 2:
 			printf_s("Traingle angles selected.\n");
-			int triangleAngleSides[3] = { 0, 0, 0 };
-			int* triangleAngleSidesPtr = getTriangleAngleSides(triangleAngleSides);
-			double angles[] = anglesofTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
-			printf_s("%lf, %lf, %lf", angles[0], angles[1], angles[2]);
+			double side1, side2, side3;
+			userTriangle(&side1, &side2, &side3);
+			anglesofTriangle(side1, side2, side3);
 		case 3:
-			printf_s("Rectangle selected\n");
-			prinf_s("Select how you would like to choose input your sides.\n");
-			printf_s("1. 4 separate sides");
-			printf_s("2. 2 sides split into 4");
-			scanf_s("%d", &rectangleMenu);
+			printf("Rectangle selected\n");
+			printf("Select how you would like to choose input your sides.\n");
+			printf("1. 4 separate sides");
+			printf("2. 2 sides split into 4");
+			scanf("%d", &rectangleMenu);
 			if (rectangleMenu == 1) {
 				int rectangleSidesSeparate[4] = { 0, 0, 0, 0 };
 				int* rectangleSidesSeparatePtr = getRectangleSeparateSides(rectangleSidesSeparate);
@@ -64,13 +62,6 @@ int main() {
 				printf_s("Invalid value entered");
 				break;
 			}
-
-//		case 2:
-//			printf_s("Traingle angles selected.\n");
-//			int triangleAngleSides[3] = { 0, 0, 0 };
-//			int* triangleAngleSidesPtr = getTriangleAngleSides(triangleAngleSides);
-//			double angles[] = anglesofTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
-//			printf_s("%lf, %lf, %lf", angles[0], angles[1], angles[2]);
 		case 0:
 			continueProgram = false;
 			break;
@@ -113,11 +104,13 @@ int* getTriangleSides(int* triangleSides) {
 	return triangleSides;
 }
 
-//int* getTriangleAngleSides(int* triangleAngleSides) {
-//	printf_s("Enter the three sides of the triangle: ");
-//	for (int i = 0; i < 3; i++)
-//	{
-//		scanf_s("%d", &triangleAngleSides[i]);
-//	}
-//	return triangleAngleSides;
-//}
+void userTriangle(double *side1, double *side2, double *side3) {
+
+	printf("Enter the first side length: ");
+	scanf_s("%lf", &side1);
+	printf("Enter the second side length: ");
+	scanf_s("%lf", &side2);
+	printf("Enter the third side length: ");
+	scanf_s("%lf", &side3);
+
+}
