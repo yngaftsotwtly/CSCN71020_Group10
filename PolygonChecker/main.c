@@ -33,8 +33,13 @@ int main() {
 			break;
 		case 2:
 			printf_s("Traingle angles selected.\n");
-			double side1, side2, side3;
-			userTriangle(&side1, &side2, &side3);
+			double side[3];//Initialize array for the input 
+			for (int i = 0; i < 3; ++i) { //Loop to continue to ask for inputs until 3 inputs 
+				userTriangle(&side[i], i + 1);
+			}
+			double side1 = side[0]; // Defining what is in the array to be able to pass through to the function 
+			double side2 = side[1];
+			double side3 = side[2];
 			anglesofTriangle(side1, side2, side3);
 		case 3:
 			printf("Rectangle selected\n");
@@ -98,14 +103,24 @@ int* getTriangleSides(int* triangleSides) {
 	return triangleSides;
 }
 
-void userTriangle(double *side1, double *side2, double *side3) {
+//void userTriangle(double *side1, double *side2, double *side3) {
+//	//Gathers user input 
+//	printf("Enter the first side length: ");
+//	scanf("%lf", &side1);
+//	printf("Enter the second side length: ");
+//	scanf("%lf", &side2);
+//	printf("Enter the third side length: ");
+//	scanf("%lf", &side3);
+//
+//}
 
-	printf("Enter the first side length: ");
-	scanf_s("%lf", &side1);
-	printf("Enter the second side length: ");
-	scanf_s("%lf", &side2);
-	printf("Enter the third side length: ");
-	scanf_s("%lf", &side3);
+void userTriangle(double* side, int counter) {
+	printf("Enter the %d side length: ", counter);
+	int i = scanf("%lf", side);
+	if (i != 1) {
+		printf("This is not a valid input!\n");
+		exit(1);
+	}
 
 }
 

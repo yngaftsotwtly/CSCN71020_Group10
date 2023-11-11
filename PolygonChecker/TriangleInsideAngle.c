@@ -7,7 +7,7 @@
 
 void anglesofTriangle(double side1, double side2, double side3) {
 
-	if (side1 + side2 > side3 && side1 + side3 > side2 && side2 + side3 > side1) {
+	if (side1 + side2 > side3 && side2 + side3 > side1 && side3 + side1 > side2) {
 		double angle1 = acos((side2 * side2 + side3 * side3 - side1 * side1) / (2 * side2 * side3));
 		double angle2 = acos((side1 * side1 + side3 * side3 - side2 * side2) / (2 * side1 * side3));
 		double angle3 = acos((side1 * side1 + side2 * side2 - side3 * side3) / (2 * side1 * side2));
@@ -18,10 +18,11 @@ void anglesofTriangle(double side1, double side2, double side3) {
 
 		printf("The inside angles are %.2lf , %.2lf , %.2lf", angle1, angle2, angle3);
 
-
+		exit(1);
 	}
 	else {
 		printf("these dont make a triangle!");
+		exit(1);
 	}
 }
 
