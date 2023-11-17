@@ -17,7 +17,7 @@ namespace REQ001
 			to show that the test functions properly.*/
 			char TestTriangle[3] = { 0,0,0 };
 			char* TestResult = analyzeTriangle(TestTriangle[0], TestTriangle[1], TestTriangle[2]);
-			Assert::AreEqual("Not a Triangle", TestResult);
+			Assert::AreEqual("Not a triangle", TestResult);
 		}
 
 		TEST_METHOD(analyzeTriangleStatementCoverage)
@@ -58,5 +58,8 @@ namespace REQ001
 			Assert::AreEqual("Not a triangle", TestResult3);
 			Assert::AreEqual("Not a triangle", TestResult4);
 		}
+	
+
+
 	};
 }

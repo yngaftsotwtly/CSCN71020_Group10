@@ -26,6 +26,8 @@ namespace REQ001
 			/*This is testing the the function coverage of the areaCalculator function. test is used to
 			to show that the test functions properly.*/
 			double TestRectangle[4] = { 0,0,0,0 };
+			double TestRectangle1[4] = { 2,2,2,2 };
+			double TestRectangle2[4] = { 4,8,4,8 };
 			double TestResult = areaCalculator(TestRectangle[0], TestRectangle[1], TestRectangle[2], TestRectangle[3]);
 			Assert::AreEqual(0.00, TestResult);
 		}
