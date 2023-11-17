@@ -41,6 +41,7 @@ int main() {
 			double side2 = side[1];
 			double side3 = side[2];
 			anglesofTriangle(side1, side2, side3);
+			exit(1);
 		case 3:
 			printf("Rectangle selected\n");
 			double x[4], y[4]; 
@@ -60,7 +61,6 @@ int main() {
 			double fourthside = sides[3];
 
 			fourpoint(firstside, secondside, thirdside, fourthside);
-			
 				
 		case 0:
 			continueProgram = false;
