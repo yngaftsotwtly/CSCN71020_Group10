@@ -60,6 +60,7 @@ int main() {
 			double fourthside = sides[3];
 
 			fourpoint(firstside, secondside, thirdside, fourthside);
+			
 				
 		case 0:
 			continueProgram = false;
