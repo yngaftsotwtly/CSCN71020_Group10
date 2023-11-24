@@ -44,25 +44,25 @@ int main() {
 			break;
 		case 3:
 			printf("Rectangle selected\n");
-			double x[4], y[4]; 
-			double sides[4];
+			double x[4], y[4]; // Defining x and y arrays 
+			double sides[4]; // Defining sides array 
 
-			for (int i = 0; i < 4; ++i) {
+			for (int i = 0; i < 4; ++i) { // A loop to get user input multiple times 
 				userInput(&x[i], &y[i], i + 1);
 				if (userInput == false)
 					exit(1);
 			}
-			for (int i = 0; i < 3; ++i) {
+			for (int i = 0; i < 3; ++i) { // Creates the side lengths 
 				sides[i] = distance(x[i], y[i], x[i + 1], y[i + 1]);
 			}
-			sides[3] = distance(x[3], y[3], x[0], y[0]);
+			sides[3] = distance(x[3], y[3], x[0], y[0]); // Outside of loop for the end one 
 
-			double firstside = sides[0];
-			double secondside = sides[1];
+			double firstside = sides[0]; // Adding them into variables instead of array
+			double secondside = sides[1]; // Easier to transport 
 			double thirdside = sides[2];
 			double fourthside = sides[3];
 
-			fourpoint(firstside, secondside, thirdside, fourthside);
+			fourpoint(firstside, secondside, thirdside, fourthside); // Adding into function 
 			break;
 		case 0:
 			continueProgram = false;
@@ -107,19 +107,9 @@ int* getTriangleSides(int* triangleSides) {
 	return triangleSides;
 }
 
-//void userTriangle(double *side1, double *side2, double *side3) {
-//	//Gathers user input 
-//	printf("Enter the first side length: ");
-//	scanf("%lf", &side1);
-//	printf("Enter the second side length: ");
-//	scanf("%lf", &side2);
-//	printf("Enter the third side length: ");
-//	scanf("%lf", &side3);
-//
-//}
 
-void userTriangle(double* side, int counter) {
-	printf("Enter the %d side length: ", counter);
+void userTriangle(double* side, int counter) { // User input with a built in checker to see 
+	printf("Enter the %d side length: ", counter); // If the input is valid 
 	int i = scanf("%lf", side);
 	if (i != 1) {
 		printf("This is not a valid input!\n");
@@ -128,8 +118,8 @@ void userTriangle(double* side, int counter) {
 	
 }
 
-void userInput(double *x, double *y, int counter) {
-	
+void userInput(double *x, double *y, int counter) { // User input with a built in checker to see 
+	// if the input is valid 
 	printf("Enter the %d x-coordinate: ", counter);
 	int i = scanf("%lf", x);
 	if (i != 1) {
@@ -147,5 +137,5 @@ void userInput(double *x, double *y, int counter) {
 }
 
 double distance(double x1, double y1, double x2, double y2) {
-	return sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
+	return sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2)); // Calculates distance based upon points given 
 }
