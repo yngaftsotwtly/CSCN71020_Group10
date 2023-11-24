@@ -5,9 +5,9 @@
 #define PI 3.14159
 #include "TriangleInsideAngle.h"
 
-double anglesofTriangle(double side1, double side2, double side3) {
+int anglesofTriangle(double side1, double side2, double side3) {
 
-	double result;
+	int result;
 
 	if (side1 + side2 > side3 && side2 + side3 > side1 && side3 + side1 > side2) {
 		double angle1 = acos((side2 * side2 + side3 * side3 - side1 * side1) / (2 * side2 * side3));
@@ -31,6 +31,7 @@ double anglesofTriangle(double side1, double side2, double side3) {
 		
 	}
 
+	
 	return result;
 }
 

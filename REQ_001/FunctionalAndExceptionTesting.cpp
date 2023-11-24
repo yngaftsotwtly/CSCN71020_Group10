@@ -15,7 +15,7 @@ namespace PolygonTests
 		TEST_METHOD(IdentifyNotATriangle)
 		{
 			/*Testing the analyzeTriangle function's ability to
-			recognize when the given side lengths do not form a triange,
+			recognize when the given side lengths do not form a triangle,
 			using the side lengths 0 2 3*/
 			char TestTriangle[3] = { 0,2,3 };
 			char* TestResult = analyzeTriangle(TestTriangle[0], TestTriangle[1], TestTriangle[2]);
@@ -67,5 +67,7 @@ namespace PolygonTests
 			char* TestResult = analyzeTriangle(TestTriangle[0], TestTriangle[1], TestTriangle[2]);
 			Assert::AreEqual("Scalene triangle", TestResult);
 		}
+
+		
 	};
 }

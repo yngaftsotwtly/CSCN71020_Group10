@@ -41,7 +41,7 @@ int main() {
 			double side2 = side[1];
 			double side3 = side[2];
 			anglesofTriangle(side1, side2, side3);
-			exit(1);
+			break;
 		case 3:
 			printf("Rectangle selected\n");
 			double x[4], y[4]; 
@@ -49,6 +49,8 @@ int main() {
 
 			for (int i = 0; i < 4; ++i) {
 				userInput(&x[i], &y[i], i + 1);
+				if (userInput == false)
+					exit(1);
 			}
 			for (int i = 0; i < 3; ++i) {
 				sides[i] = distance(x[i], y[i], x[i + 1], y[i + 1]);
@@ -61,7 +63,7 @@ int main() {
 			double fourthside = sides[3];
 
 			fourpoint(firstside, secondside, thirdside, fourthside);
-				
+			break;
 		case 0:
 			continueProgram = false;
 			break;
@@ -100,6 +102,7 @@ int* getTriangleSides(int* triangleSides) {
 	for (int i = 0; i < 3; i++)
 	{
 		scanf_s("%d", &triangleSides[i]);
+
 	}
 	return triangleSides;
 }
@@ -122,7 +125,7 @@ void userTriangle(double* side, int counter) {
 		printf("This is not a valid input!\n");
 		exit(1);
 	}
-
+	
 }
 
 void userInput(double *x, double *y, int counter) {
