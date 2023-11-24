@@ -8,7 +8,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace REQ001
 {
-	TEST_CLASS(REQ001)
+	TEST_CLASS(REQ002)
 	{
 	public:
 
